@@ -23,6 +23,8 @@ public class BugService
         return bugRepo.getBugs();
     }
 
+    public List<Bug> getBug(long assigned_to) { return bugRepo.getBug(assigned_to); }
+
     /**
      * Adds bug to Bug table
      * @param bug
@@ -31,5 +33,4 @@ public class BugService
     {
         bugRepo.save(bug);
     }
-
 }

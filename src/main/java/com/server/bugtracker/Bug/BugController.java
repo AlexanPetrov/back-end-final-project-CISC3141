@@ -29,6 +29,12 @@ public class BugController
         return bugService.getBugs();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/get-bug")
+    public List<Bug> getBug() {
+        long assigned_to = 0;
+        return bugService.getBug(assigned_to);
+    }
+
     /**
      * Creates a bug request
      * POST request must be JSON format
@@ -39,6 +45,4 @@ public class BugController
     {
         bugService.createBug(bug);
     }
-
-
 }
