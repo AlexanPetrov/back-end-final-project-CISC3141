@@ -29,10 +29,16 @@ public class BugController
         return bugService.getBugs();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/get-bug")
-    public List<Bug> getBug() {
-        long assigned_to = 0;
-        return bugService.getBug(assigned_to);
+    @RequestMapping(method = RequestMethod.POST, value = "/get-bug")
+    public Bug getBug(@RequestBody String id)
+    {
+        return  bugService.getBug( id );
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/delete-bug")
+    public Bug deleteBug() {
+        long id = 0;
+        return bugService.deleteBug(id);
     }
 
     /**

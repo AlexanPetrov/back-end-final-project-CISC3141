@@ -23,7 +23,12 @@ public class BugService
         return bugRepo.getBugs();
     }
 
-    public List<Bug> getBug(long assigned_to) { return bugRepo.getBug(assigned_to); }
+    public Bug getBug( String id )
+    {
+        return bugRepo.getBug( Long.parseLong( id ) );
+    }
+
+    public Bug deleteBug(long id) { return bugRepo.deleteBug(id); }
 
     /**
      * Adds bug to Bug table

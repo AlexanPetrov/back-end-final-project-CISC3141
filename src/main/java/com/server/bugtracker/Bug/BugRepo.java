@@ -23,6 +23,9 @@ public interface BugRepo extends CrudRepository<Bug, Long>, JpaRepository<Bug, L
     @Query(value = "SELECT * FROM bug", nativeQuery = true)
     public List<Bug> getBugs();
 
-    @Query(value = "SELECT title, bug_description, severity, bug_status FROM bug WHERE assigned_to = ?1;", nativeQuery = true)
-    public List<Bug> getBug( @Param("assigned_to") long assigned_to );
+    @Query(value = "SELECT b.id , b.title, b.bug_description, b.due_date, b.assigned_to, b.created_by, b.severity, b.bug_status FROM bug AS b WHERE b.id = ?1" , nativeQuery = true)
+    public Bug getBug( @Param ("id") long id);
+
+    @Query(value = "DELETE b.id, b.title, b.bug_description, b.due_date, b.assigned_to, b.created_by, b.severity, b.bug_status FROM bug AS b WHERE b.id = ?1" , nativeQuery = true)
+    public Bug deleteBug( @Param("b.id") long id );
 }
