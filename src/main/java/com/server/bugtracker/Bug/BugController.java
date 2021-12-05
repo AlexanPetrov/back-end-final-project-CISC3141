@@ -36,7 +36,7 @@ public class BugController
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete-bug")
-    public Bug deleteBug(@RequestBody long id) {return bugService.deleteBug( id ); }
+    public void deleteBug(@RequestBody long id) { bugService.deleteBug( id ); }
 
     /**
      * Creates a bug request

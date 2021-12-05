@@ -2,6 +2,7 @@ package com.server.bugtracker.Bug;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -26,6 +27,8 @@ public interface BugRepo extends CrudRepository<Bug, Long>, JpaRepository<Bug, L
     @Query(value = "SELECT b.id , b.title, b.bug_description, b.due_date, b.assigned_to, b.created_by, b.severity, b.bug_status FROM bug AS b WHERE b.id = ?1" , nativeQuery = true)
     public Bug getBug( @Param ("id") long id);
 
+    @Modifying
+    @Transactional
     @Query(value = "DELETE FROM bug AS b WHERE b.id = ?1", nativeQuery = true)
     public Bug deleteBug( @Param("id") long id );
 }
