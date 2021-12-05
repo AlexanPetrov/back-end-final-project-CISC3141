@@ -34,6 +34,13 @@ public class Bug {
     public Bug() {
     }
 
+    @Override
+    public String toString() {
+        return "[" + "id: " + id + ", " + "title: " + title + ", " + "bug_description: " + bug_description + ", " + "due_date: " + due_date +
+                ", " + "assigned_to: " + assigned_to + ", " + "created_by: " + created_by + ", " +
+                "severity: " + severity + ", " + "bug_status: " + bug_status + "]";
+    }
+
     /**
      * Constructor
      *
@@ -112,11 +119,5 @@ public class Bug {
 
     public void setBug_status(String bug_status) {
         this.bug_status = bug_status;
-    }
-
-    public String toString() {
-        return "[" + "id: " + id + ", " + "title: " + title + ", " + "bug_description: " + bug_description + ", " + "due_date: " + due_date +
-                ", " + "assigned_to: " + assigned_to + ", " + "created_by: " + created_by + ", " +
-                "severity: " + severity + ", " + "bug_status: " + bug_status + "]";
     }
 }
