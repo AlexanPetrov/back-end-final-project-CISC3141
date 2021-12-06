@@ -30,5 +30,5 @@ public interface BugRepo extends CrudRepository<Bug, Long>, JpaRepository<Bug, L
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM bug AS b WHERE b.id = ?1", nativeQuery = true)
-    public Bug deleteBug( @Param("id") long id );
+    public void deleteBug( @Param("id") long id );
 }

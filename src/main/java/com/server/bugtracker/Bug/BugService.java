@@ -28,7 +28,7 @@ public class BugService
         return bugRepo.getBug( Long.parseLong( id ) );
     }
 
-    public Bug deleteBug(long id) { return bugRepo.deleteBug(id); }
+    public void deleteBug(long id) { bugRepo.deleteBug(id); }
 
     /**
      * Adds bug to Bug table
