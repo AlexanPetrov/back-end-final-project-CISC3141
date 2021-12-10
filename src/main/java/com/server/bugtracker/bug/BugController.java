@@ -86,6 +86,17 @@ public class BugController
         return  bugService.getBug( bug.getId() );
     }
 
+        /**
+     * Retrieves bugs
+     * @param bug
+     * @return Bug database entry (JSON)
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/search-bug")
+    public Bug getBug(@RequestBody Bug bug)
+    {
+        return  bugService.getBug(bug.getTitle());
+    }
+
     /**
      * Deletes a bug
      * @param bug
